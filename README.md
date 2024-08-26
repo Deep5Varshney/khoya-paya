@@ -1,4 +1,4 @@
-Khoya-paya portal
+Khoya paya portal
 
 
 
