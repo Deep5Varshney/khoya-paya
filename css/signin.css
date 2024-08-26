@@ -1,0 +1,239 @@
+*{
+    padding:0px;
+    margin:0px;
+}
+body{
+    background-color:#f1f2f6;
+    height:100%;
+}
+.sign-info{
+    display:flex;
+}
+.input-conatiner .details{
+    display:flex;
+    flex-direction: column;
+}
+.form-group{
+    height:615px;
+    width:78.5%;
+    border:1px solid transparent;
+    margin:4rem 0 0 10rem ;
+    border-radius: 10px;
+    background-color: #fff;
+    box-shadow:  rgba(0, 0, 0, 0.35) 0px 5px 15px;;
+}
+.form-group-slider{
+    height:750px;
+    margin-bottom: 3rem;
+}
+.heading{
+    margin-top:1.5rem;
+    text-align:center;
+    font-size:25px;
+}
+.image{
+    margin: 1rem 0 0 2.5rem;
+    width:50%;
+}
+img{
+    height:480px;
+    width:98%;
+}
+#img{
+    width:20px;
+    height:20px;
+}
+.input-container{
+    margin: 2.5rem 0 0 2rem;
+}
+.input-control{
+    display:flex;
+    margin: 0.5rem 0;
+    padding:1rem;
+    height: auto;
+    width:181%;
+    border-radius: 5px;
+    outline: 1px solid #c7ecee;
+    border: none;
+    background-color: #f1f2f6;
+    font-size: 15px;;
+}
+.input-control-slider{
+    width:101%;
+}
+.input-container label{
+    font-size: 20px;
+}
+
+.button-control{
+    margin-top:0.7rem;
+    width:195%;
+    height:50px;
+    border-radius: 5px;
+    background-color:#1e90ff;
+    border: none;
+    font-size: 20px;
+    color: #fff;
+}
+.button-control-slider{
+    width:108.5%
+}
+.input-container .login{
+    display: flex;
+    margin-top:0.7rem 
+}
+.input-container .login p{
+    font-size: 18px;
+    margin-right:1rem;
+}
+.input-container .login a{
+    text-decoration: none;
+    font-size: 18px;;
+    color:#3742fa;
+}
+.subheading, .password{
+    display: flex;
+}
+.subheading p, .password p{
+    font-size: 18px;
+    margin:0.8rem 1rem 0.4rem 0;
+}
+.subheading a, .password a{
+    font-size: 18px;
+    margin:0.8rem 1rem 0.4rem 0;
+    text-decoration: none;
+    color:#3742fa
+}
+#button{
+    width:136%;
+}
+#int1, #int2{
+    width:127%;
+    height:auto;
+}
+
+.form-row{
+    display:flex;
+}
+.form-col input{
+    height:35px;
+    border-radius: 5px;
+    border:2px solid grey;
+    width:74%;
+    margin-top:0.5rem;
+}
+#capt{
+    background-color:#ecf0f1;
+    padding-left:1rem;
+}
+.captcha{
+    font-size: 20px;
+    margin-top: 1rem;
+}
+h4{
+    font-size: 18px;;
+}
+h4 img{
+    margin:0.5rem 0 0 0.5rem;
+}
+#textinput{
+    background-color:aliceblue;
+    padding-left:1rem;
+}
+
+.resetBlock{
+    display:flex;
+    flex-direction:column;
+    height:180px;
+    width:120%;
+    border-radius:10px;
+    background-color: #ecf0f1;
+    opacity:0;
+    border:2px solid #c7ecee;
+    margin-top:0.6rem;
+}
+
+.resetBlock h2{
+    margin:1rem 0 0 2rem;
+    color:#192a56
+}
+
+.resetBlock label{
+    margin:1rem 0 0 2rem;
+    font-size: 18px;
+    font-weight: bold;
+    color:#34495e;
+}
+
+.resetBlock input{
+    margin:0.5rem  0 0 2rem;
+    border-radius: 10px;
+    width:76%;
+    border:0.5px solid grey;
+    padding:1rem; 
+    font-size:16px;
+}
+
+.resetBlock #sendEmailButton{
+    margin:1rem 0 0 2rem;
+    border:0.5px solid transparent;
+    width:85%;
+    color:white;
+    font-size: 16px;
+    font-weight: bold;
+    padding:1rem;
+    border-radius: 10px;
+    background-color: #1e90ff;
+}
+
+.container-reslide{
+    height:790px;  
+    margin-bottom:4rem; 
+}
+.container-slide{
+    opacity:1;
+    height:230px;
+}
+
+video{
+    width:590px;
+    height:480px;
+}
+
+.password-details{
+    border:1px solid #7f8c8d;
+    background-color: #ecf0f1;
+    margin: 1rem 0 1rem 1rem;
+    opacity:0;
+    visibility: hidden; /* Not visible in layout */
+    position: absolute;
+}
+.password-details-slider{
+    opacity:1;
+    height:155px;
+    width:102%;
+    position: relative; /* Or absolute, fixed, etc., depending on layout */
+    visibility: visible; /* Visible in layout */
+}
+.password-intro{
+    display:flex;
+    margin: 0.4rem 0 0 1rem;
+}
+.password-intro .bulb{
+    margin:0.2rem 0.5rem 0 0;
+    color:#192a56;
+}
+.password-intro h4{
+    color:#192a56;
+}
+
+.password-rules{
+    margin:0.5rem 0 0 3rem;
+}
+.password-rules span{
+    color:#d63031;
+    font-weight: 600;
+}
+.password-rules li{
+    margin-bottom:0.2rem;
+}

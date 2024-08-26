@@ -1,0 +1,90 @@
+*{
+    margin:0px;
+    padding:0px
+}
+
+.container{
+    height:370px;
+    width:50%;
+    border: 1px solid black;
+    margin:4rem 0 0 24rem;
+    background-color: #ecf0f1;
+}
+.heading{
+    width:91%;
+    height:50px;
+    border: 1px solid black;
+    margin:2rem 0 0 2rem;
+    background-color:#192a56;
+}
+h3{
+    color:azure;
+    margin:0.6rem 0 0 7rem;
+    font-size:24px;
+}
+.details{
+    margin:1rem 0 0 3rem;
+}
+.details input{
+    width:200px;
+    height:auto;
+    padding:0.3rem;
+}
+.details label{
+    color:#192a56;
+    font-size: 22px;;
+}
+#state, #policeStation, #district{
+    width:200px;
+    height:auto;
+    margin:0 1rem 0.8rem 0.3rem;
+    padding:0.3rem;
+}
+#district{
+    position:absolute;
+    top:22.5%;
+    left:52%;
+}
+#head2{
+    margin-left:1rem;
+}
+.captcha{
+    font-size: 20px;
+    margin:1rem 0 0 3rem;
+    color:#192a56;
+    font-weight: bold;
+}
+.form-row{
+    margin:0.5rem 0 0 2.7rem;
+    display:flex;
+    align-items: space-between;
+}
+.form-col{
+    border-radius: 0px;
+    margin:0 0 0 0.5rem;
+
+}
+.form-col input{
+    height:30px;
+    border-radius: 5px;
+    border:2px solid grey;
+}
+#capt{
+    background-color:#bec5c6
+}
+#captcha{
+    margin-top:1rem
+}
+h4{
+    margin-left:1.5rem;
+    color:#192a56;
+}
+button{
+    margin:1rem 0 0 20rem;
+    font-size: 19px;
+    padding:0.6rem;
+    border-radius:10px;
+    border:none;
+    background-color: #192a56;
+    color: azure;
+}

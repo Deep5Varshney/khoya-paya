@@ -1,0 +1,85 @@
+ <form id = "signup-form">
+        <div class = "container">
+            <div>
+                <h1 class="heading">Sign Up</h1>
+            </div>
+    
+            <div class="signIn-container">
+                <div class="details">
+                    <input type="text" placeholder="Enter your Name" required></input>
+                </div>
+               
+                <div class="details">
+                    <input type="email" placeholder="Enter your email" required></input>
+                </div>
+                <div class="details">
+                    <input type="password" placeholder="Enter your password" required/>
+                </div>
+
+                <div class="details">
+                    <input type="password" placeholder="Confirm password" required/>
+                </div>
+                
+              
+                <div class="gender">
+                    <label>Select your Gender:</label>
+                    <div>
+                        <input type = "radio" value="male" name="gender" id =male></input>
+                        <label for = "male">Male</label>
+            
+                        <input type = "radio" value="female" name="gender" id =female></input>
+                        <label for = "female">Female</label>
+                    </div>
+                </div>
+              
+               
+    
+                <button type="submit"><p>SIGN IN</p> </button>
+                <div>
+                    <p class="subheading">Already Have an Account?</p><a href="./login.html" target="_blank">Login</a>
+                </div>
+            </div>
+        </div>
+        
+        
+    </form>
+
+
+      <form id ="login-form">
+        <div class="container">
+            <div>
+                <h1>Log In</h1>
+            </div>
+            <div class ="login-container">
+                <input type="email" placeholder ="email" required/>
+                <input type="password" placeholder ="password" required/>
+            </div>
+
+            <label class ="captcha">Enter Captcha :</label>
+            <div class="form-row">
+                <div class="form-col col-md-6">
+                    <input type="text" id ="capt" readonly/>
+                </div>
+                <div class="form-col col-md-6">
+                    <input type="text" id ="textinput"/>
+                </div>
+            </div>
+            <h4>Captcha not visible <img src="./Images/arrow-fresh-refresh-icon--22.png " width="20" height="20" onClick="cap()"></img></h4>
+            <button  type="submit" ><p>LOG IN</p></button>
+            
+            <div class = "subheading">
+                <p>Don't have an Account ?</p> <a href="./signup.html" target="_blank">Sign Up</a>
+            </div>
+            <div class="password">
+                <p>Forgotten Password?</p><a href="#" id ="password" class="resetPassword">Recover here</a>
+            </div>
+
+            <div class ="resetBlock">
+                <h2>Reset Your Password</h2>
+                <label>Enter your email</label>
+                <input type="text" id="emailInput" placeholder="xyz@gmail.com"/>
+                <button id="sendEmailButton" type="button"> Send Password reset Email</button>
+            </div>
+
+        </div>
+     </form>

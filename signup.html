@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="./css/signin.css"></link>
+    <title>Sign Up</title>
+</head>
+<body>
+    <form id = "signup-form">
+        <div class="form-group">
+            <div class="heading">
+                <h2>Sign In</h2>
+            </div>
+
+            <div class="sign-info">
+                <div class="image">
+                    <img src="./Images/Screenshot 2024-08-03 230002.png"></img>
+                </div>
+
+
+                <div class="input-container">
+                    <div class="details">
+                        <label>Full name :</label>
+                        <input type="text" placeholder="eg : John Doe" class="input-control" required/>
+                    </div>
+    
+                    <div class="details">
+                        <label>Email :</label>
+                        <input type="email" placeholder="eg :  abc@xyz.com" class="input-control" required/>
+                    </div>
+    
+                    <div class="details">
+                        <label>Password :</label>
+                        <input type="password" placeholder="password" class="password-change input-control" required/>
+                    </div>
+
+                    <div class="details">
+                        <div class="password-details">
+                            <div class="password-intro">
+                                <i class="fa-solid fa-lightbulb bulb"></i> <h4>Tips for Creating a Strong Password:</h4>
+                            </div>
+                            <ul class="password-rules" >
+                                <li>Ensure your password is <span>at least 8 characters long.</span></li>
+                                <li>Include <span>at least one alphanumeric character</span>(letter or digit).</li>
+                                <li>Incorporate <span>at least one numerical digit.</span></li>
+                                <li>Avoid using <span>spaces</span>within the password.</li>
+                                <li>Use a mix of <span>upper</span> and <span>lowercase letters.</span></li>
+                            </ul>
+                        </div>
+                    </div>
+    
+                    <div class="details">
+                        <label>Confirm Password :</label>
+                        <input type="password" placeholder="Enter your password again" class="input-control" required/>
+                    </div>
+
+                    <button class="button-control">Sign In</button>
+                    <div class="login">
+                        <p>Already have an account?</p> <a href="./login.html" >Log In</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script>
+        // Password validation function
+        function validatePassword(password) {
+            const minLength = 8;
+            const hasAlphanumeric = /[a-zA-Z]/.test(password);
+            const hasNumber = /\d/.test(password);
+            const hasSpace = /\s/.test(password);
+
+           // Check if the password meets all the criteria
+            if (password.length >= minLength && hasAlphanumeric && hasNumber && !hasSpace) {
+                return true; // Password is valid
+            } else {
+                return false; // Password does not meet the criteria
+            }
+        }
+         document.getElementById('signup-form').addEventListener('submit', async function(e) {
+            e.preventDefault();
+
+            let name = document.querySelector("input[placeholder='eg : John Doe']").value;
+            let email = document.querySelector("input[placeholder='eg :  abc@xyz.com']").value;
+            let password = document.querySelector("input[placeholder='password']").value;
+            let confirmPassword = document.querySelector("input[placeholder='Enter your password again']").value;
+
+            if (password !== confirmPassword) {
+                alert("Password and confirm password should match.");
+                    return;
+            }
+
+            if (!validatePassword(password)) {
+                alert("Password does not meet the required criteria.");
+                return;
+            }
+
+            try {
+                let resp = await axios.post('http://localhost:3000/user/signup', { name, email, password, confirmPassword });
+                console.log("resp",resp);
+                if(resp.data.message === "User created"){
+                    alert("The information you have provided meets all the required criteria.");
+                    window.location.href = '/login.html'; //Redirect to login page 
+                }
+                
+            } catch (error) {
+                if (error.response && error.response.data && error.response.data.message) {
+                    alert(error.response.data.message); // Show error message from backend
+                }
+            }
+        });
+    </script>
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $('.password-change').click(function(){
+            $('.password-details').addClass('password-details-slider');
+            $('.form-group').addClass('form-group-slider');
+            $('.input-control').addClass('input-control-slider');
+            $('.button-control').addClass('button-control-slider')
+        })
+    </script>
+</body>
+</html>

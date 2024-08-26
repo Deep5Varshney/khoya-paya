@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link rel="stylesheet" href="./css/signin.css"></link>
+    <title>Login</title>
+</head>
+<body onload="cap()">
+    <form  id ="login-form">
+        <div class="form-group">
+            <div class="heading">
+                <h2>Log In</h2>
+            </div>
+
+            <div class="sign-info">
+                <div class="image">
+                    <video  loop autoplay muted>
+                        <source src="./video/AdobeStock_533611505_Video_HD_Preview.mov" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+
+
+                <div class="input-container">
+    
+                    <div class="details">
+                        <label>Email :</label>
+                        <input type="email" placeholder="eg :  abc@xyz.com" id="int1" class="input-control" />
+                    </div>
+    
+                    <div class="details">
+                        <label>Password :</label>
+                        <input type="password" placeholder="password" id="int2" class="input-control" />
+                    </div>
+
+                    <label class ="captcha">Enter Captcha :</label>
+                    <div class="form-row">
+                        <div class="form-col col-md-3">
+                            <input type="text" id ="capt" readonly/>
+                        </div>
+                        <div class="form-col col-md-3">
+                            <input type="text" id ="textinput"/>
+                        </div>
+                    </div>
+                    <h4>Captcha not visible <img src="./Images/arrow-fresh-refresh-icon--22.png " id="img" onClick="cap()"></img></h4>
+                    <button id="button" class="button-control">Log In</button>
+
+                    <div class = "subheading">
+                        <p>Don't have an Account ?</p> <a href="./signup.html" >Sign Up</a>
+                    </div>
+
+                    <div class="password">
+                        <p>Forgotten Password?</p><a href="#" id ="password" class="resetPassword">Recover here</a>
+                    </div>
+                    <div class ="resetBlock">
+                        <h2>Reset Your Password</h2>
+                        <label>Enter your email</label>
+                        <input type="text" id="emailInput" placeholder="xyz@gmail.com"/>
+                        <button id="sendEmailButton" type="button"> Send Password reset Email</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+
+     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js "></script>
+    <script>
+
+        function cap(){
+            let alpha = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z','1','2'
+                ,'3','4','5','6','7','8','9','0','a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v'
+                ,'w','x','y','z','!','@','#','$','%','^','&','*','+'           ];
+            let a = alpha[Math.floor(Math.random()*71)];
+            let b = alpha[Math.floor(Math.random()*71)];
+            let c = alpha[Math.floor(Math.random()*71)];
+            let d = alpha[Math.floor(Math.random()*71)];
+            let e = alpha[Math.floor(Math.random()*71)];
+            let f = alpha[Math.floor(Math.random()*71)];
+
+            let final = a+b+c+d+e+f;
+            document.getElementById('capt').value = final;
+        }
+
+        function validcap(){
+            var stg1 = document.getElementById('capt').value;
+            var stg2 = document.getElementById('textinput').value;
+            if(stg1 === stg2){
+                return true;
+            }
+            else{
+                alert('Please enter a valid captcha ');
+                return false;
+            }
+        }
+
+        
+        
+        if (sessionStorage.getItem("userAuthenticated") === "true") {
+        window.location.href = '/main.html';
+        }
+        document.getElementById('login-form').addEventListener('submit', async function(e) {
+            e.preventDefault();
+
+            if (!validcap()) {
+                return; // Stop if captcha is not valid
+            }
+
+            let email = document.querySelector("input[placeholder='eg :  abc@xyz.com']").value;
+            let password = document.querySelector("input[placeholder='password']").value;
+
+            //http://192.168.1.102:3000 -> backend url
+            const domain = window.location.hostname;
+            console.log(domain);
+            try {
+                const resp = await axios.post(`http://${domain}:3000/user/login`, { email, password },{headers: {'Content-Type': 'application/json'}, withCredentials: true});
+                if (resp.data.message === "user has logged in") {
+                    //sweetalert
+                    const isFirstLogin = resp.data.firstLogin;
+                    const alertText = isFirstLogin ? "A confirmation email has been sent to you with your credentials. Welcome to Khoya Paya Portal!" : "Welcome to Khoya Paya Portal!";
+                    Swal.fire({
+                        title: "Login Successful!!!",
+                        text: alertText,
+                        icon: "success"
+                    }).then((result)=>{
+                        if(result.isConfirmed){
+                            sessionStorage.setItem("userAuthenticated", "true"); // Set logged in flag
+                            sessionStorage.removeItem("passwordChanged");
+                            // Replace history state and redirect to main page
+                            history.replaceState(null, null, './main.html');
+                            window.location.href = '/main.html'; // Redirect to home page upon successful login
+                        }
+                    })
+                } 
+                else {
+                    alert(resp.data.message); // Show error message
+                }
+            } catch (err) {
+                console.log(err);
+                alert("An error occurred during login. Please try again.");
+            }
+        });
+
+          // Prevent back navigation to the login page
+        window.addEventListener('popstate', function (event) {
+            if (sessionStorage.getItem("userAuthenticated") === "true") {
+                window.location.href = '/main.html';
+            }
+        });
+       
+        //resetPassword
+        document.getElementById('sendEmailButton').addEventListener('click', async () => {
+        const email = document.getElementById('emailInput').value;
+
+        if (!email) {
+            alert('Please enter an email address.');
+            return;
+        }
+        const domain = window.location.hostname;
+        console.log(domain);
+
+        try {
+        const response = await fetch('http://localhost:3000/user/forgotPassword', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ email, domain })
+        });
+
+        const responseText = await response.text();
+        console.log('Response Text:', responseText);
+
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        const data = JSON.parse(responseText);
+        alert(data.message);
+        } 
+        catch (error) {
+            console.log('Error:', error);
+            alert('An error occurred. Please try again later.');
+        }
+        })
+
+    </script>
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+     <script>
+        $('.resetPassword').click(function(){
+            $('.resetBlock').addClass('container-slide');
+            $('.form-group').addClass('container-reslide');
+        })
+     </script>
+
+
+     
+</body>
+</html>

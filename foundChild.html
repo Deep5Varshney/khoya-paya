@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link rel="stylesheet" href="./css/foundChild.css"></link>
+    <title>Found Child</title>
+</head>
+<body>
+<div class ="child-info">
+        <div class ="title">
+            <h1>1. Sighting Child's Details :</h1>
+        </div>
+    <form>
+        <div class="child-infom">
+            <div class ="grp1">
+                <label>Name of the child (if known) :</label>
+                <input type="text" placeholder="Enter the full name" id ="fullname" required/>
+                <hr class="sl">
+                <label>Estimated Age : </label>
+                <input type="number" placeholder="Enter the age" id="age" required/>
+            </div>
+            <hr>
+            <div class="grp5">
+                <label>Father Name:</label>
+                <input type="text" placeholder="Enter the father name" id="fathername" required/></input>
+                <hr class ="sl">
+                <label>Mother Name:</label>
+                <input type="text" placeholder="Enter the mother name" id="mothername" required/></input>
+            </div>
+            <hr>
+            <div class="grp2">
+                <label>Gender :</label>
+                <select placeholder="select gender" id="gender" required>
+                    <option value="">Select Gender</option>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                    <option value="other">Other</option>
+                </select>
+                <hr class="sl">
+                <label>Height :</label>
+                <input type="number" placeholder="Enter height" id= "gender" required/>
+                <hr class="sl">
+                <label>Weight :</label>
+                <input type="number" placeholder ="Enter weight" id="weight" required/>
+            </div>
+            <hr>
+            <div class="grp3">
+                <label>Eye Color:</label>
+                <select id="eyeColor" name="eyeColor" required>
+                    <option value="">Select eye Color</option>
+                    <option value="brown">Black</option>
+                    <option value="brown">Brown</option>
+                    <option value="blue">Blue</option>
+                    <option value="green">Green</option>
+                    <option value="gray">Gray</option>
+                    <option value="other">Other</option>
+                </select>
+                <hr class="sl">
+                <label>Hair color:</label>
+                <select id="hairColor" name="hairColor" required>
+                    <option value="">Select hair Color</option>
+                    <option value="black">Black</option>
+                    <option value="brown">Brown</option>
+                    <option value="blonde">Blonde</option>
+                    <option value="gray">Gray</option>
+                    <option value="white">White</option>
+                    <option value="other">Other</option>
+                </select>
+                <hr class="sl">
+                <label>Complexion :</label>
+                <select id="complexion" name="complexion" required>
+                    <option value="">Select Complexion</option>
+                    <option value="fair">Fair</option>
+                    <option value="light">Light</option>
+                    <option value="medium">Medium</option>
+                    <option value="olive">Olive</option>
+                    <option value="tan">Tan</option>
+                    <option value="brown">Brown</option>
+                    <option value="dark">Dark</option>
+                </select>
+            </div>
+            <hr>
+            <div class="grp4">
+                <label>Distinguishing Marks/Scars/Tattoos :</label>
+                    <input type="text" id ="int1" placeholder=" Describe any distinguishing marks, scars, or tattoos" required/>
+                <hr>
+                <label>Clothing Last Seen Wearing (upper/lower) :</label>
+                <input type="text"id="int2" placeholder="Describe the clothing last seen wearing" required/>
+                <hr>
+                <label>Accessories :</label>
+                <input type="text" id="int3" placeholder="Eg:, Red backpack, blue hat " required/>
+            </div>
+
+        </div>
+    </form>
+
+    <div class ="title">
+        <h1>2. Location details :</h1>
+    </div>
+    <form>
+        <div class ="location-details">
+            <div class="grp1">
+                <label>Date found :</label>
+                <input type="date" placeholder="dd/mm/yyyy" id ="dateFound" required></input>
+                <hr class="sl">
+                <label>Time found :</label>
+                <input type="time" name ="time" id ="timeFound" required></input>
+            </div>
+            <hr>
+            <hr class ="hr">
+            <div class="grp2">
+                <label> Exact location found :</label>
+                <input type="text" placeholder="eg., any landmarks or addresses" id ="locationFound" required/>
+                <label id ="lb1">Surrounding Environment :</label>
+                <input id ="int1" type="text" placeholder="e.g., busy street, quiet park, shopping area, etc." id="Environment" />
+            </div>
+        </div>
+    </form>
+
+    <div class="title">
+        <h1>3. Authorities notified :</h1>
+    </div>
+    <form>
+        <div class="auth-info" id ="complaint-details">
+            <div class ="grp1">
+                <label>State Name : </label>
+                <select id="state" name="state" required>
+                    <option value="">Select State</option>
+                    <option value="Andhra Pradesh">Andhra Pradesh</option>
+                    <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+                    <option value="Assam">Assam</option>
+                    <option value="Bihar">Bihar</option>
+                    <option value="Chhattisgarh">Chhattisgarh</option>
+                    <option value="Goa">Goa</option>
+                    <option value="Gujarat">Gujarat</option>
+                    <option value="Haryana">Haryana</option>
+                    <option value="Himachal Pradesh">Himachal Pradesh</option>
+                    <option value="Jharkhand">Jharkhand</option>
+                    <option value="Karnataka">Karnataka</option>
+                    <option value="Kerala">Kerala</option>
+                    <option value="Madhya Pradesh">Madhya Pradesh</option>
+                    <option value="Maharashtra">Maharashtra</option>
+                    <option value="Manipur">Manipur</option>
+                    <option value="Meghalaya">Meghalaya</option>
+                    <option value="Mizoram">Mizoram</option>
+                    <option value="Nagaland">Nagaland</option>
+                    <option value="Odisha">Odisha</option>
+                    <option value="Punjab">Punjab</option>
+                    <option value="Rajasthan">Rajasthan</option>
+                    <option value="Sikkim">Sikkim</option>
+                    <option value="Tamil Nadu">Tamil Nadu</option>
+                    <option value="Telangana">Telangana</option>
+                    <option value="Tripura">Tripura</option>
+                    <option value="Uttar Pradesh">Uttar Pradesh</option>
+                    <option value="Uttarakhand">Uttarakhand</option>
+                    <option value="West Bengal">West Bengal</option>
+                    <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
+                    <option value="Chandigarh">Chandigarh</option>
+                    <option value="Dadra and Nagar Haveli and Daman and Diu">Dadra and Nagar Haveli and Daman and Diu</option>
+                    <option value="Delhi">Delhi</option>
+                    <option value="Lakshadweep">Lakshadweep</option>
+                    <option value="Puducherry">Puducherry</option>
+                    <option value="Ladakh">Ladakh</option>
+                    <option value="Jammu and Kashmir">Jammu and Kashmir</option>
+                </select>
+                <hr class ="sl">
+                <label for="district">District :</label>
+                <select id="district" name="district"  required>
+                    <option value="">Select State First</option>
+                </select>
+            </div>
+            <hr>
+            <div class="grp2">
+                <label>Police Station :</label>
+               <select id="policeStation" name="policeStation" required>
+                    <option value="">Select District first</option>
+               </select>
+            </div>
+            <hr>
+            <div class ="grp3">
+                <label>Case reference number (if any) :</label>
+                <input  type="number" placeholder="Case reference number" id ="caseReferenceNumber"/>
+            </div>
+            
+    </form>
+    <div class ="multer-image">
+       <!-- Image Preview Section -->
+       <div class="preview-container">
+            <img id="imagePreview" class="preview-image" src="#" />
+        </div>
+
+        <form id="imageUploadForm" method = "POST" enctype ="multipart/form-data">
+            <input type="file" name = "photo" id="fileInput"></input> 
+            <button type="button" onclick="uploadImage(event)" id ="button">Submit</button>
+        </form> 
+    </div> 
+</div> 
+
+<div class ="title">
+    <h1>4. Contact Information :</h1>
+</div>
+<form>
+    <div class ="contact-details">
+        <div class ="grp1">
+            <label>Name of the Person/Organization who found the child :</label>
+            <input type="text"  placeholder="Enter the full name" id ="reportingPersonName" required></input>
+        </div>
+        <hr>
+        <h3>Contact details of the reporting person/organization- </h3>
+        <div class ="grp2">
+            <label>Phone Number :</label>
+            <input type="number" placeholder="Enter your phone number" maxlength="10" pattern="\d{10}" id="phoneNumber"/>
+            <h3>Or</h3>
+            <label>Telephone Number :</label>
+            <input type="number" placeholder="Enter your Telephone number" maxlength="10" pattern="\d{10}" id="telephoneNumber" />
+        </div>
+        <div class ="grp3">
+            <label>Email :</label>
+            <input type="email" placeholder="Enter your email address" id ="email" required/>
+        </div>
+        </div>
+    </div>
+</form>
+
+<div class ="heading">
+    <label>Additional Notes:</label>
+    <input type="text" placeholder="Any other relevant information that might help in identifying the child." id="additional-notes"/>
+    
+</div>
+
+<div class="button">
+    <div>
+        <button id ="bt1" onclick="saveFormData()" type="button" >Save and continue</button>
+        <button  id="resetButton">Reset</button>
+    </div>
+    <div class="submit">
+        <button id="id2"  onclick="handleSubmit(event)"> Submit</button>
+    </div>
+</div>
+<script>
+     const stateDistricts = {
+                "Arunachal Pradesh" : {
+                    "Anjaw":["Hayuliyang"],
+                    "Dibang Valley":["Anini", "Dambuk","Hunli","Roing"],
+                    "Tawang":[], "West Kameng":[], "East Kameng":[], "Papum Pare":[], "Kurung Kumey":[], "Kra Daadi":[], "Lower Subansiri":[], "Upper Subansiri":[], "West Siang":[], "East Siang":[], "Siang":[], "Upper Siang":[], "Lower Siang":[], "Lower Dibang Valley":[], "Lohit":[], "Namsai":[], "Changlang":[], "Tirap":[], "Longding":[]
+                },
+                "Andhra Pradesh":{
+                    "Kadapa":["Badvel Urban", "Cuddapah_rpfscrgnt7", "Proddatur Rural"]
+                }, "Delhi":{
+                    "DWARKA":["BABA HARI DASS NAGAR","BINDAPUR","CHAAWALA","DABRI","DWARKA NORTH","DWARKA SECTOR 23","DWARKA SOUTH","MOHAN GARDEN"], 
+                    "EAST":["GHAZIPUR","KALYANPURI","LAXMI NAGAR","MADHU VIHAR","MAYUR VIHAR","NEW ASHOK NAGAR","PANDAV NAGAR","PREET VIHAR"], 
+                    "NEW DELHI":["KARTVYA PATH","CHANKYA PURI","NORTH AVENUE","PARLIAMENT STREET","SOUTH AVENUE"], 
+                    "NORTH EAST":[], 
+                    "NORTH WEST":[], 
+                    "ROHINI":[], 
+                    "SHAHDRA":[], 
+                    "SOUTH":[], 
+                    "SOUTH EAST":[], 
+                    "SOUTH WEST":[], 
+                    "WEST":[]
+                }
+            // Add other states and districts similarly
+        };
+
+        const stateSelect = document.getElementById('state');
+        const districtSelect = document.getElementById('district');
+        const policeStationSelect = document.getElementById('policeStation');
+
+        stateSelect.addEventListener('change', function() {
+            const selectedState = stateSelect.value;
+            districtSelect.innerHTML = '<option value="">Please Select</option>';
+
+              // Populate the district dropdown based on the selected state
+              if (selectedState) {
+                const districts = Object.keys(stateDistricts[selectedState]);
+              districts.forEach(district => {
+                    const option = document.createElement('option');
+                    option.value = district;
+                    option.textContent = district;
+                    districtSelect.appendChild(option);
+                });
+                // Show the district dropdown and label
+                districtSelect.style.display = 'block';
+            } else {
+                // Hide the district dropdown and label if no state is selected
+                districtSelect.style.display = 'none';
+            }
+        })
+
+        districtSelect.addEventListener('change', function() {
+            const selectedState = stateSelect.value;
+            const selectedDistrict = districtSelect.value;
+
+            // Clear the police station dropdown
+            policeStationSelect.innerHTML = '<option value="">Please Select</option>';
+
+            if (selectedState && selectedDistrict) {
+                // Populate the police station dropdown based on the selected district
+                const areas = stateDistricts[selectedState][selectedDistrict] || [];
+                areas.forEach(area => {
+                    const option = document.createElement('option');
+                    option.value = area;
+                    option.textContent = area;
+                    policeStationSelect.appendChild(option);
+                });
+            } 
+        });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script>
+    let imagePreviewSrc;
+    document.getElementById('fileInput').addEventListener('change', (event) => {
+        const file = event.target.files[0];
+        const reader = new FileReader();
+        reader.onload = (event) => {
+            imagePreviewSrc = event.target.result;
+            const imagePreview = document.getElementById('imagePreview');
+            imagePreview.src = event.target.result;
+            //console.log(imagePreview.src);
+            imagePreview.alt = 'Uploaded Image';
+        };
+        reader.readAsDataURL(file);
+    });
+
+    async function uploadImage(event) {
+        event.preventDefault(); // Prevent the default form submission
+        const formData = new FormData(document.getElementById('imageUploadForm'));
+        try {
+            const response = await fetch('http://localhost:3000/user/secondImage', {
+                method: 'POST',
+                body: formData
+            });
+
+            if (!response.ok) {
+                throw new Error(`Server error: ${response.status}`);
+            }
+
+            const data = await response.json();
+            console.log('Full response data:', data); // Log the entire response object
+            if (data.imageUrl) {
+                console.log('Image URL:', data.imageUrl);
+            } else {
+                console.error('Image URL not found in response data.');
+            }
+            event.preventDefault();
+           // alert('Image uploaded successfully!');
+            console.log('Image URL:', data);
+            // Update the image preview src to keep the image visible after form submission
+            const imagePreview = document.getElementById('imagePreview');
+            imagePreview.src = imagePreviewSrc || data.imageUrl;
+            // Reset the file input to prevent the image from disappearing
+            document.getElementById('fileInput').value = '';
+        } catch (error) {   
+            alert('Error uploading image: ' + error.message);
+            console.error(error);
+        }
+        return false;
+    }
+   
+</script>
+<script>
+    async function fetchLatestImage() {
+        try {
+            // Fetch the latest image details from the backend
+            const response = await fetch('http://localhost:3000/user/foundchildImage');
+            
+            if (!response.ok) {
+                throw new Error(`Failed to fetch image: ${response.status}`);
+            }
+
+            const data = await response.json();
+
+            // Check if the image data was successfully retrieved
+            if (data && data.url) {
+                const imagePreview = document.getElementById('imagePreview');
+                imagePreview.src = data.url; // Set the src of the img tag to the image URL
+                imagePreview.alt = 'Latest uploaded image'; // Optionally set alt text
+            } else {
+                console.error('Image URL not found in response data.');
+            }
+        } catch (error) {
+            console.error('Error fetching image data:', error);
+        }
+    }
+
+    // Call the function immediately
+    fetchLatestImage();
+</script>
+<script>
+    async function handleSubmit(event){
+    event.preventDefault();
+
+    const dateInput=document.querySelector('input[placeholder="dd/mm/yyyy"]').value;
+
+    const formData = {
+
+            childDetails: {
+                name: document.querySelector('input[placeholder="Enter the full name"]').value,
+                age:document.querySelector('input[placeholder="Enter the age"]').value,
+                fatherName:document.querySelector('input[placeholder="Enter the father name"]').value,
+                motherName:document.querySelector('input[placeholder="Enter the mother name"]').value,
+                gender:document.querySelector('select[placeholder="select gender"]').value,
+                height:document.querySelector('input[placeholder="Enter height"]').value,
+                weight:document.querySelector('input[placeholder="Enter weight"]').value,
+                eyeColor:document.querySelector('select[name="eyeColor"]').value,
+                hairColor:document.querySelector('select[name="hairColor"]').value,
+                complexion:document.querySelector('select[name="complexion"]').value,
+                distinguishingMarks:document.querySelector('input[placeholder=" Describe any distinguishing marks, scars, or tattoos"]').value,
+                clothesLastSeen:document.querySelector('input[placeholder="Describe the clothing last seen wearing"]').value,
+                accessories:document.querySelector('input[placeholder="Eg:, Red backpack, blue hat "]').value
+            },
+
+            locationDetails:{
+                date:document.querySelector('input[placeholder="dd/mm/yyyy"]').value,
+                time:document.querySelector('input[name="time"]').value,
+                locationFound:document.querySelector('input[placeholder="eg., any landmarks or addresses"]').value,
+                surroundingEnv: document.querySelector('input[placeholder="e.g., busy street, quiet park, shopping area, etc."]').value
+            },
+
+            authoritiesNotified:{
+                state: document.querySelector('#state').value,
+                district:document.querySelector('#district').value,
+                policeStation:document.querySelector('#policeStation').value,
+                caseReferenceNumber:document.querySelector('input[placeholder="Case reference number"]').value
+            },
+
+            contactDetails:{
+                reportingPerson: document.querySelector('input[placeholder="Enter the full name"]').value,
+                phoneNumber: document.querySelector('input[placeholder="Enter your phone number"]').value,
+                telephoneNumber: document.querySelector('input[placeholder="Enter your Telephone number"]').value,
+                email: document.querySelector('input[placeholder="Enter your email address"]').value
+
+            },
+
+            additionalNotes:document.querySelector('input[placeholder="Any other relevant information that might help in identifying the child."]').value
+        }
+
+        try{
+            const resp = await axios.post('http://localhost:3001/foundChild/retrieveInfo', formData);
+            //console.log(resp);
+            alertText="Credentials stored and submitted Successfully";
+            Swal.fire({
+                title: "Success",
+                text: alertText,
+                icon: "success"
+            })
+        }catch(err){
+            console.log(err);
+        }
+    }
+</script>
+<script>
+     // Function to save form data to localStorage
+     function saveFormData() {
+            const formElements = document.querySelectorAll('form input, form select, form textarea');
+            formElements.forEach(element => {
+                const { id, type, checked, value } = element;
+                if (id) { // Only proceed if the element has an id
+                    const key = `found_${id}`;
+                    if (type === 'checkbox') {
+                        localStorage.setItem(key, checked);
+                    } else {
+                        localStorage.setItem(key, value);
+
+                    }
+                }
+            });
+            alert('Data saved successfully!');
+        }
+
+        // Function to load form data from localStorage
+        function loadFormData() {
+            const formElements = document.querySelectorAll('form input, form select, form textarea');
+            formElements.forEach(element => {
+                const { id, type } = element;
+                if (id) { // Only proceed if the element has an id
+                    const key = `found_${id}`;
+                    if (type === 'checkbox') {
+                        element.checked = localStorage.getItem(key) === 'true';
+                    } else {
+                        element.value = localStorage.getItem(key) || '';
+                    }
+                }
+            });
+        }
+
+        // Call loadFormData when the page loads
+        window.onload = loadFormData;
+</script>
+
+<script>
+    document.getElementById('resetButton').addEventListener('click', () => {
+    // Clear form fields
+    document.querySelector('form').reset();
+
+   // Clear localStorage for found child data
+   Object.keys(localStorage).forEach(key => {
+        if (key.startsWith('found_')) {
+                localStorage.removeItem(key);
+        }
+    });
+
+    // Reset additional form elements if necessary
+    document.querySelectorAll('input, select').forEach(el => el.value = '');
+
+    // Optionally, reset the state and district dropdowns
+    document.getElementById('state').value = '';
+    document.getElementById('district').innerHTML = '<option value="">Select State First</option>';
+    document.getElementById('policeStation').innerHTML = '<option value="">Select District First</option>';
+    localStorage.removeItem('foundChildData');
+});
+</script>
+</body>
+</html>
+

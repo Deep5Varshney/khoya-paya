@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/childDetails.css">
+    <title>Child Details</title>
+</head>
+<body>
+    <form>
+        <div class="form-group">
+            <div class="lostchild-info">
+                <h2>Missing child details</h2>
+                <div class="info-flex">
+                    <img id="imagePreview" class="preview-image" src="#" alt="Missing Child Image"></img>
+                    <div class="info-col">
+                        <div class="details">
+                            <label>Name :</label>
+                            <input class="lchild-name" id = "lchild-name" readonly></input>
+                        </div>
+    
+                        <div class="details">
+                            <label>Gender :</label>
+                            <input class="lchild-gender" id = "lchild-gender" readonly></input>
+                        </div>
+
+                        <div class="details">
+                            <label>Age :</label>
+                            <input class="lchild-age" id = "lchild-age" readonly></input>
+                        </div>
+
+                        <div class="details">
+                            <label>Distinguishing Marks :</label>
+                            <input class="lchild-distinguishing-marks marksInput" id="lchild-distinguishing-marks" readonly></input>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="details" id="details">
+                    <label>Father Name :</label>
+                    <input class="lchild-father-name" id="lchild-father-name" readonly></input>
+                </div>
+
+                <label id="label">Mother Name :</label>
+                <input class="lchild-mother-name" id="lchild-mother-name" readonly></input>
+
+                <div class="wt-ht">
+                    <label id ="label">Weight :</label>
+                    <input class="lchild-weight" id="lchild-weight" readonly></input>
+    
+                    <label>height :</label>
+                    <input class="lchild-height" id="lchild-height" readonly></input>
+                </div>
+
+                <label id ="label">Eye color :</label>
+                <input class="lchild-eye-color" id="lchild-eye-color" readonly></input>
+
+                <div class="details" id="details">
+                    <label>Hair color :</label>
+                    <input class="lchild-hair-color" id="lchild-hair-color" readonly></input>
+                </div>
+
+                <label id ="label">Complexion :</label>
+                <input class="lchild-complex-color" id="lchild-complex-color" readonly></input>
+            </div>
+
+            <div class="lostchild-info">
+                <h2>Found child details</h2>
+                <div class="info-flex">
+                    <img id="found-imagePreview" class="preview-image" src="#" alt="found child image"></img>
+                    <div class="info-col">
+                        <div class="details">
+                            <label>Name :</label>
+                            <input class="lchild-name"  id ="fchild-name" readonly></input>
+                        </div>
+    
+                        <div class="details">
+                            <label>Gender :</label>
+                            <input class="lchild-gender" id ="fchild-gender" readonly></input>
+                        </div>
+
+                        <div class="details">
+                            <label>Age :</label>
+                            <input class="lchild-age" id ="fchild-age" readonly></input>
+                        </div>
+
+                        <div class="details">
+                            <label>Distinguishing Marks :</label>
+                            <input class="lchild-distinguishing-marks marksInput " id="fchild-distinguishing-marks" readonly></input>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="details" id="details">
+                    <label>Father Name :</label>
+                    <input class="lchild-father-name" id ="fchild-father-name" readonly></input>
+                </div>
+
+                <label id="label">Mother Name :</label>
+                <input class="lchild-mother-name" id ="fchild-mother-name" readonly></input>
+
+                <div class="wt-ht">
+                    <label id ="label">Weight :</label>
+                    <input class="lchild-weight" id ="fchild-weight" readonly></input>
+    
+                    <label>height :</label>
+                    <input class="lchild-height" id ="fchild-height" readonly></input>
+                </div>
+
+                <label id ="label">Eye color :</label>
+                <input class="lchild-eye-color" id ="fchild-eye-color" readonly></input>
+
+                <div class="details" id="details">
+                    <label>Hair color :</label>
+                    <input class="lchild-hair-color" id="fchild-hair-color" readonly></input>
+                </div>
+
+                <label id ="label">Complexion :</label>
+                <input class="lchild-complex-color" id ="fchild-complex-color" readonly></input>
+
+                <div class="nav-buttons">
+                    <button id="prev-btn" disabled>&lt;</button>
+                    <span id="nav-info">1 of 2</span>
+                    <button id="next-btn">&gt;</button>
+                </div>
+            </div>
+            
+
+        </div>
+
+        <div class="matching">
+            <h2>Matching % : </h2>
+            <input id="matchPerc" readonly></input>
+        </div>
+    </form>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', async () => {
+            try {
+                const response = await fetch('http://localhost:3000/api/best_match');
+                const data = await response.json();
+
+                if (data.length > 0) {
+                    let currentIndex = 0;
+                    const nextButton = document.getElementById('record-btn');
+
+                    const populateFields = (index) => {
+                        const child = data[index];
+                        document.getElementById('fchild-name').value = child.name;
+                        document.getElementById('fchild-gender').value = child.gender;
+                        document.getElementById('fchild-age').value = child.age;
+                        document.getElementById('fchild-distinguishing-marks').value = child.distinguishingmarks;
+                        document.getElementById('fchild-father-name').value = child.fathername;
+                        document.getElementById('fchild-mother-name').value = child.mothername;
+                        document.getElementById('fchild-weight').value = child.weight;
+                        document.getElementById('fchild-height').value = child.height;
+                        document.getElementById('fchild-eye-color').value = child.eyecolor;
+                        document.getElementById('fchild-hair-color').value = child.haircolor;
+                        document.getElementById('fchild-complex-color').value = child.complexion;
+                        document.getElementById('matchPerc').value = child.matchingpercentage;
+                        document.getElementById('nav-info').textContent = `${currentIndex + 1} of ${data.length}`;
+                        document.getElementById('prev-btn').disabled = currentIndex === 0;
+                        document.getElementById('next-btn').disabled = currentIndex === data.length - 1;
+                    };
+
+                    populateFields(currentIndex);
+
+                    document.getElementById('next-btn').addEventListener('click', () => {
+                        if (currentIndex < data.length - 1) {
+                            currentIndex++;
+                            populateFields(currentIndex);
+                        }
+                    });
+
+                    document.getElementById('prev-btn').addEventListener('click', () => {
+                        if (currentIndex > 0) {
+                            currentIndex--;
+                            populateFields(currentIndex);
+                        }
+                    });
+                }
+            } catch (error) {
+                console.log('Error fetching data:', error);
+            }
+        });
+    </script>
+
+    <script>
+         document.addEventListener('DOMContentLoaded', async () => {
+            try {
+                const response = await fetch('http://localhost:3000/api/lostchild');
+                if (!response.ok) {
+                    throw new Error('Network response was not ok ' + response.statusText);
+                }
+                const data = await response.json();
+
+                // Assuming you want to populate the fields with the first result
+                if (data.length > 0) {
+                    const child = data[0]; // Change index if you want another result
+                    document.getElementById('lchild-name').value = child.fullname; // write name of the cols specified in the query table not those names specified at the time of creation
+                    document.getElementById('lchild-gender').value = child.gender;
+                    document.getElementById('lchild-age').value = child.age;
+                    document.getElementById('lchild-distinguishing-marks').value = child.distinguishingmarks;
+                    document.getElementById('lchild-father-name').value = child.fathername;
+                    document.getElementById('lchild-mother-name').value = child.mothername;
+                    document.getElementById('lchild-weight').value = child.weight;
+                    document.getElementById('lchild-height').value = child.height;
+                    document.getElementById('lchild-eye-color').value = child.eyecolor;
+                    document.getElementById('lchild-hair-color').value = child.haircolor;
+                    document.getElementById('lchild-complex-color').value = child.complexion;
+                }
+            } catch (error) {
+                console.error('Error fetching data:', error);
+            }
+        });
+    </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', async () => {
+        try {
+            // Fetch the latest image details from the backend
+            const response = await fetch('http://localhost:3000/user/latestImage');
+            const data = await response.json();
+
+            // Check if the image data was successfully retrieved
+            if (data && data.url) {
+                const imagePreview = document.getElementById('imagePreview');
+                imagePreview.src = data.url; // Set the src of the img tag to the image URL
+            } else {
+                console.error('Image URL not found in response data.');
+            }
+        } catch (error) {
+            console.error('Error fetching image data:', error);
+        }
+    });
+    </script>
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', async () => {
+        try {
+            // Fetch the latest image details from the backend
+            const response = await fetch('http://localhost:3000/user/foundchildImage');
+            const data = await response.json();
+
+            // Check if the image data was successfully retrieved
+            if (data && data.url) {
+                const imagePreview = document.getElementById('found-imagePreview');
+                imagePreview.src = data.url; // Set the src of the img tag to the image URL
+            } else {
+                console.error('Image URL not found in response data.');
+            }
+        } catch (error) {
+            console.error('Error fetching image data:', error);
+        }
+    });
+    </script>
+</body>
+</html>

@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jaini&family=Lora:ital,wght@0,400..700;1,400..700&family=Special+Elite&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="./css/main.css"></link>
+    <title>Khoya Paya portal</title>
+</head>
+<body>
+    <div class="heading">
+        <h1 class="text1">Khoya Paya</h1>
+    </div>
+    <Navbar class="navbar">
+        <img src="./Images/logo (2).png"></img>
+        <div class="navbar-inner">
+            <ul class="icons">
+                <a href="#"> About Us</a>
+                <a href="#">Link to Us</a>
+                <a href="#" id ="terms">Terms and conditions</a>
+                <a href="#">Feedback</a>
+                <a href="#">Contact Us</a>
+            </ul>
+        </div>
+        <input type="text"  placeholder="Enter your search" ></input><i class="fa-solid fa-magnifying-glass search-icon"></i>
+        <ul id="loginSignupContainer">
+            <a href="./login.html"  id="login"><li>Login</li></a>
+            <a href="./signup.html"  id="signup"><li>Signup</li></a>
+        </ul>
+        <i class="fa-solid fa-user user-icon" id="profile-icon"></i>
+    </Navbar>
+
+    <section class="profile">
+        <div class ="user-info">
+            <ul>
+                <li>Profile</li>
+                <hr>
+                <li><a href="#" id ="logoutButton">logout</a></li>
+             </ul> 
+        </div>
+    </section>
+
+    <section>
+        <div class="img-gallery">
+            <img src="./img-gallery/Screenshot 2024-07-15 011120.png" alt="img1" id="img1"></img>
+            <img src="./img-gallery/Screenshot 2024-07-15 101436.png" alt="img2" id="img2"></img>
+            <img src="./img-gallery/Screenshot 2024-07-17 002701.png" alt="img3" id="img3"></img>
+            <img src="./img-gallery/Screenshot 2024-07-15 101541.png" alt="img5" id="img5"></img>
+            <img src="./img-gallery//Screenshot 2024-07-15 102321.png" alt="img6" id="img6"></img>
+        </div>
+    </section>
+
+    <section>
+        <div class="container">
+            <h1>
+                Khoya Paya portal
+            </h1>
+            <h3> Your Trusted Resource for Reporting and Finding Missing Children</h3>
+            <p>The Khoya Paya portal is an initiative by the Government of India to assist in the search<br><span> and recovery of missing children.</span><br>This platform empowers both parents and concerned citizens to contribute to child safety.</p>
+            <div class="main-button">
+                <button id="btn1">Search missing children</button>
+                <button id="btn2">Report missing children</button>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="links">
+            <h2>Important Links</h2>
+            <ul>
+                <a href="#" id="lk1"><li> Inform about missing child</li></a>
+                <a href="#" id="lk2"><li>Inform about found child</li></a>
+                <a href="#" id="lk3"><li>check the status of your missing child report </li></a>
+            </ul>
+        </div>
+    </section>
+
+    <section>
+        <div class="features">
+            <h2>Features of khoya paya portal - </h2>
+            <ul>
+                <li>Intuitive design for easy navigation and accessibility.</li>
+                <li>Responsive layout for seamless experience across devices.</li>
+                <li>Comprehensive search options with filters such as name, age, gender, and location.</li>
+                <li>Simple and secure form to report a missing child.</li>
+                <li>Parents/guardians can report missing children with details and photos.</li>
+            </ul>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer">
+
+                <div class="support-icons">
+                    <h4>Follow us on : </h4>
+                    <div class="icons">
+                        <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                        <a href="#"><i class="fa-brands fa-youtube"></i></a>
+                        <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                    </div>
+                </div>
+
+            <div class="copyright">
+                <div class="details">
+                    <span id="current_year"></span> <span class="copy">&copy;</span> <strong>All rights reserved</strong>
+                </div>
+            
+            </div>
+        </div>
+
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script>
+         document.addEventListener("DOMContentLoaded", function() {
+            checkLoginStatus();
+        });
+
+        async function checkLoginStatus() {
+        try {
+                const domain = window.location.hostname;
+                const response = await axios.get(`http://${domain}:3000/user/login`, { withCredentials: true });
+                //console.log(response);
+                console.log("Hello")
+                if (response.data.message === "user has logged in") {
+                    console.log("Hello2")
+                    const username = response.data.data;
+                    console.log(username);
+                    console.log("Full response data:", response.data);
+                    console.log("Full response data:", response.data.data);
+                    updateNavbarWithUsername(username);
+                } else {
+                    showLoginSignupOptions();
+                }
+            } catch (err) {
+                console.log(err);
+                showLoginSignupOptions();
+            }
+        }
+        function updateNavbarWithUsername(username) {
+        const loginSignupContainer = document.getElementById('loginSignupContainer'); // Assuming this is a <ul> or <nav> element
+        loginSignupContainer.innerHTML = ''; // Clear existing content
+        const li = document.createElement('li');
+        li.textContent = `Welcome, ${username}!`; // Create the <li> with the username
+        loginSignupContainer.appendChild(li); // Add the <li> to the container
+        document.getElementById('profile-icon').style.visibility='visible';
+    
+        }
+
+        function showLoginSignupOptions() {
+        const loginSignupContainer = document.getElementById('loginSignupContainer');
+        loginSignupContainer.innerHTML = `
+            <a href="./login.html"  id="login"><li>Login</li></a>
+            <a href="./signup.html"  id="signup"><li>Signup</li></a>
+        `;
+       }
+    </script>
+    <script>
+         const domain = window.location.hostname;
+         console.log(domain);
+        
+        document.getElementById('logoutButton').addEventListener('click', async function() {
+            try {
+                let resp = await axios.get(`http://${domain}:3000/user/logout`, { withCredentials: true });
+                if (resp.data.message === "User logout successfully") {
+                    alert("User Logout successfully.");
+                    sessionStorage.removeItem("userAuthenticated");
+                    window.location.reload(); // Refresh the current page (main.html)
+                    // window.location.href = '/login.html';
+
+                    const loginSignupContainer = document.getElementById('loginSignupContainer');
+                    loginSignupContainer.innerHTML = `
+                        <a href="./login.html"  id="login"><li>Login</li></a>
+                        <a href="./signup.html"  id="signup"><li>Signup</li></a>
+                    `;
+                    document.getElementById('profile-icon').style.visibility='hidden';
+
+                } else {
+                    alert("Login first.");
+                }
+            } catch (err) {
+                console.error(err);
+                alert("An error occurred during logout.");
+            }
+        });
+
+         async function handleLogin(pageurl) {
+            const domain = window.location.hostname;
+            console.log(domain);
+            try{
+                let resp = await axios.get(`http://${domain}:3000/user/login`, { withCredentials: true } );
+                if(resp.data.message === "user has logged in"){
+                sessionStorage.removeItem("userAuthenticated");
+                window.location.href = pageurl;
+                 } 
+                else{
+                    alert("please login first");
+                 }
+            }catch(err){
+                console.log(err);
+            }
+        }
+        
+        document.getElementById('lk1').addEventListener('click', ()=>handleLogin('/lostchild.html'));
+        document.getElementById('lk2').addEventListener('click', ()=>handleLogin('/foundChild.html'));
+        document.getElementById('lk3').addEventListener('click', ()=>handleLogin('/trackchild.html'));   
+        document.getElementById('btn1').addEventListener('click', () => handleLogin('/lostchild.html'));
+        document.getElementById('btn2').addEventListener('click', () => handleLogin('/foundChild.html'));
+
+        document.getElementById("current_year").innerHTML=new Date().getFullYear(); 
+    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $('.user-icon').click(function(){
+            $('.user-info').addClass('user-info-slider');
+        })
+    </script>
+    <!-- <script src="./JS/timer.js"></script> -->
+</body>
+</html>
