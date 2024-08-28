@@ -1,17 +1,12 @@
-![screencapture-192-168-1-107-5501-lostchild-html-2024-08-19-21_27_18](https://github.com/user-attachments/assets/47372e11-e4c1-4eda-83e2-5865ae4b8628)
 ## Khoya - Paya portal
 
  - This portal serves as a platform for managing and tracking reports of missing and found children, offering a secure space for parents and authorities to provide essential information and updates.
 
 - It makes reporting and searching easier, helping to resolve cases quickly 
 
-
-
-
 ## Features
 
 Users : Parents/guardians, authorities, admin
-
 
 ## Parents/guardians
 
@@ -102,6 +97,7 @@ Start the server
 ![screencapture-192-168-1-107-5501-main-html-2024-08-19-22_51_03](https://github.com/user-attachments/assets/5ac7379d-f007-44ab-b594-67c9563dc4b2)
 
 ## Log-in interface
+![Screenshot 2024-08-28 202550](https://github.com/user-attachments/assets/1a0eb32f-0702-42d2-b3f7-fa9842563147)
 
 ## Lost child page
 ![screencapture-192-168-1-107-5501-lostchild-html-2024-08-19-21_27_18](https://github.com/user-attachments/assets/1c6ae57e-4eca-48b5-8f28-05f878cca564)
